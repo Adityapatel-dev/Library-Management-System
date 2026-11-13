@@ -1,37 +1,18 @@
 # Library Management System
 
-A menu-driven Library Management System developed in **C++** to demonstrate core Data Structures and Algorithms concepts, modular programming, and file handling.
+A console-based **Library Management System built with C++17**. This academic project demonstrates how common Data Structures and Algorithms can be applied to book management, user records, book circulation, and reservations.
 
 ## Project Overview
 
-The application helps manage books, library users, book issue and return operations, and reservation requests. It uses different data structures for different types of records and stores data in local text files so records can be loaded again when the program restarts.
+The system allows a librarian to manage a collection of books and registered users through a menu-driven interface. It supports issuing and returning books, queuing reservation requests, and saving records to local text files so that data can be loaded again when the application restarts.
 
-## Features
+## Key Features
 
-### Book Management
-- Add and display books
-- Search books by title or author
-- Check book availability
-- Delete eligible book records
-
-### User Management
-- Register and display users
-- Search users by ID
-- Update user names
-- Delete eligible user records
-
-### Circulation and Reservations
-- Issue books to registered users
-- Return books with borrower validation
-- Reserve books that are currently issued
-- Process reservations in First-In, First-Out (FIFO) order
-- Automatically assign a returned book to the next eligible user in the queue
-
-### File Handling
-- Load book and user records when the application starts
-- Save records after menu operations
-- Store book and reservation information in `data/books.txt`
-- Store user information in `data/users.txt`
+- **Book management:** Add, display, search by title or author, check availability, and delete eligible books.
+- **User management:** Register, display, search, update, and delete user records.
+- **Book circulation:** Issue books to registered users and validate returns against the borrower.
+- **Reservations:** Queue requests for issued books and process them in FIFO order when a book is returned.
+- **File persistence:** Load and save book and user records using text files.
 
 ## Screenshots
 
@@ -42,26 +23,37 @@ The application helps manage books, library users, book issue and return operati
 ![Display all books](screenshots/book_list.png)
 
 ### Issue Book
-![Book issued successfully](screenshots/issue_book.png)
+![Book issue operation](screenshots/issue_book.png)
 
 ### Return Book
-![Book returned successfully](screenshots/return_book.png)
+![Book return operation](screenshots/return_book.png)
 
 ### Reservation Validation
-![System prevents reservation when the book is already issued](screenshots/reservation-already-issued.png)
+![Reservation validation when the book is already issued](screenshots/reservation-already-issued.png)
 
-The reservation validation example shows User ID `202` attempting to reserve Book ID `103`, which is already issued. The system responds with **"Book is already issued!"**.
+In this example, User ID `202` attempts to reserve Book ID `103`, which is already issued. The system displays **"Book is already issued!"**.
 
-> Add the screenshot images to the `screenshots/` folder using the filenames shown above so they appear in this section on GitHub.
+## Technologies and Concepts
+
+| Area | Technology / Concept |
+|---|---|
+| Programming language | C++ |
+| Language standard | C++17 |
+| Compiler | GCC / g++ |
+| Development environment | Visual Studio Code |
+| User records | Array |
+| Book records | Singly linked list |
+| Reservation requests | Queue (FIFO) |
+| Data persistence | File handling with text files |
 
 ## Data Structures Used
 
-| Data Structure | Usage |
+| Data Structure | Purpose |
 |---|---|
 | Array | Stores user records (maximum capacity: 100 users) |
 | Singly Linked List | Stores and manages book records |
-| Queue | Maintains book reservation requests in FIFO order |
-| File Streams | Persists book and user data between program runs |
+| Queue | Maintains reservation requests in First-In, First-Out order |
+| File Streams | Saves and loads records between program runs |
 
 ## Project Structure
 
@@ -78,6 +70,11 @@ Library_Management/
 │   ├── books.txt
 │   └── users.txt
 ├── screenshots/
+│   ├── main_menu.png
+│   ├── book_list.png
+│   ├── issue_book.png
+│   ├── return_book.png
+│   └── reservation-already-issued.png
 ├── docs/
 ├── Library_Management_System.docx
 └── .gitignore
@@ -87,40 +84,49 @@ Library_Management/
 
 - Windows, Linux, or macOS
 - GCC with C++17 support (or another compatible C++17 compiler)
-- Visual Studio Code or any C++ editor (optional)
+- Visual Studio Code or another C++ editor (optional)
 
 ## Build and Run
 
-Run these commands from the project root directory.
+Run the commands from the project root directory.
 
-### Compile
+### Windows (PowerShell)
+
+Compile:
+
+```powershell
+g++ -std=c++17 -Wall -Wextra -I include src/main.cpp src/Book.cpp src/User.cpp -o LibraryManagement.exe
+```
+
+Run:
+
+```powershell
+.\LibraryManagement.exe
+```
+
+### Linux / macOS
+
+Compile:
 
 ```bash
 g++ -std=c++17 -Wall -Wextra -I include src/main.cpp src/Book.cpp src/User.cpp -o LibraryManagement
 ```
 
-On Windows, you can use an executable name with the `.exe` extension:
-
-```powershell
-g++ -std=c++17 -Wall -Wextra -I include src/main.cpp src/Book.cpp src/User.cpp -o LibraryManagement.exe
-.\LibraryManagement.exe
-```
-
-On Linux or macOS, run:
+Run:
 
 ```bash
 ./LibraryManagement
 ```
 
-**Important:** Run the executable from the project root directory. The `data` directory must exist so the application can read and write `books.txt` and `users.txt`. The text files can be created by the application when it first saves data, but the directory itself should already exist.
+**Important:** Run the executable from the project root directory. The `data` directory must exist so the application can read and write `books.txt` and `users.txt`.
 
 ## Testing
 
-The project has been manually tested for core operations and common invalid cases, including duplicate IDs, invalid IDs, unavailable books, incorrect return users, deletion restrictions, reservation duplicates, FIFO reservation assignment, and loading saved records after restarting the application.
+The project has been manually tested for core operations and common invalid cases, including duplicate IDs, invalid IDs, unavailable books, incorrect return users, deletion restrictions, duplicate reservations, FIFO reservation assignment, and loading saved records after restarting the application.
 
 ## Documentation
 
-The repository includes a project report in `Library_Management_System.docx`. See the repository files for the report.
+The repository includes the project report: [Library_Management_System.docx](Library_Management_System.docx).
 
 ## Future Enhancements
 
@@ -128,12 +134,10 @@ The repository includes a project report in `Library_Management_System.docx`. Se
 - Add login and role-based access
 - Add due dates, overdue tracking, and fine calculation
 - Develop a graphical or web-based interface
-- Add reports, backups, and stronger file validation
+- Add backups and stronger file validation
 
 ## Author
 
 **Aditya Patel**
 
----
-
-This project was developed as an academic MCA / Data Structures and Algorithms project.
+Academic MCA project focused on C++ and Data Structures and Algorithms.
