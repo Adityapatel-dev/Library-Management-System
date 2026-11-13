@@ -33,6 +33,27 @@ The application helps manage books, library users, book issue and return operati
 - Store book and reservation information in `data/books.txt`
 - Store user information in `data/users.txt`
 
+## Screenshots
+
+### Main Menu
+![Library Management System main menu](screenshots/main-menu.png)
+
+### Book List
+![Display all books](screenshots/book-list.png)
+
+### Issue Book
+![Book issued successfully](screenshots/issue-book.png)
+
+### Return Book
+![Book returned successfully](screenshots/return-book.png)
+
+### Reservation Validation
+![System prevents reservation when the book is already issued](screenshots/reservation-already-issued.png)
+
+The reservation validation example shows User ID `202` attempting to reserve Book ID `103`, which is already issued. The system responds with **"Book is already issued!"**.
+
+> Add the screenshot images to the `screenshots/` folder using the filenames shown above so they appear in this section on GitHub.
+
 ## Data Structures Used
 
 | Data Structure | Usage |
@@ -56,6 +77,7 @@ Library_Management/
 ├── data/
 │   ├── books.txt
 │   └── users.txt
+├── screenshots/
 ├── docs/
 ├── Library_Management_System.docx
 └── .gitignore
