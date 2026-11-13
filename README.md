@@ -36,16 +36,16 @@ The application helps manage books, library users, book issue and return operati
 ## Screenshots
 
 ### Main Menu
-![Library Management System main menu](screenshots/main-menu.png)
+![Library Management System main menu](screenshots/main_menu.png)
 
 ### Book List
-![Display all books](screenshots/book-list.png)
+![Display all books](screenshots/book_list.png)
 
 ### Issue Book
-![Book issued successfully](screenshots/issue-book.png)
+![Book issued successfully](screenshots/issue_book.png)
 
 ### Return Book
-![Book returned successfully](screenshots/return-book.png)
+![Book returned successfully](screenshots/return_book.png)
 
 ### Reservation Validation
 ![System prevents reservation when the book is already issued](screenshots/reservation-already-issued.png)
